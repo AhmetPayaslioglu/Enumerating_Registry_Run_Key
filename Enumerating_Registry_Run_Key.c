@@ -106,5 +106,45 @@ int __cdecl _tmain()
         QueryKey(hTestKey);
     }
 
+    HKEY hTestKey2;
+
+    if (RegOpenKeyEx(HKEY_CURRENT_USER,
+        TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce"),
+        0,
+        KEY_READ,
+        &hTestKey2) == ERROR_SUCCESS
+        )
+    {
+        QueryKey(hTestKey2);
+    }
+
+    HKEY hTestKey3;
+
+    if (RegOpenKeyEx(HKEY_CURRENT_USER,
+        TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\RunServices"),
+        0,
+        KEY_READ,
+        &hTestKey3) == ERROR_SUCCESS
+        )
+    {
+        QueryKey(hTestKey3);
+    }
+
+    HKEY hTestKey4;
+
+    if (RegOpenKeyEx(HKEY_CURRENT_USER,
+        TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\RunServicesOnce"),
+        0,
+        KEY_READ,
+        &hTestKey4) == ERROR_SUCCESS
+        )
+    {
+        QueryKey(hTestKey4);
+    }
+
     RegCloseKey(hTestKey);
+    RegCloseKey(hTestKey2);
+    RegCloseKey(hTestKey3);
+    RegCloseKey(hTestKey4);
+
 }
